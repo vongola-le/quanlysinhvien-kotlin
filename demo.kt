@@ -23,6 +23,40 @@ class ThiSinh(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, v
     
     //Ham khoi tao khong tham so
     constructor() : this("", "", 0f, 0f, 0f, 0f, 0f, "")
+
+    //Ham so sanh ho ten
+    fun SoSanhTen(HoTen: String): Int {
+        val hoTen1 = TachHoTen(this.hoTen)
+        val hoTen2 = TachHoTen(HoTen)
+    
+        val ssTen = hoTen1["Tên"]?.compareTo(hoTen2["Tên"].toString())
+        val ssHo = hoTen1["Họ"]?.compareTo(hoTen2["Họ"].toString())
+    
+        var n : Int = 0
+    
+        if(ssTen != null) {
+            if (ssTen > 0) {
+                n = 1
+            } else if (ssTen < 0) {
+                n = -1
+            } else if(ssHo != null){
+                if(ssHo > 0){
+                    n = 1
+                }else if(ssHo < 0){
+                    n = -1
+                }
+            }
+        }
+    
+        return n
+    }
+}
+
+fun TachHoTen(hoTen: String): Map<String, String>{
+    var vt = hoTen.lastIndexOf(" ")
+    var chuoiHoTen = mapOf("Họ" to hoTen.substring(0, vt).lowercase(), "Tên" to hoTen.substring(vt+1).lowercase())
+
+    return chuoiHoTen
 }
 
 fun SapXepDS(ds:ArrayList<sinhvien>){
