@@ -63,7 +63,7 @@ class ThiSinh(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, v
             println("Văn: ${it.van}")
             println("Anh: ${it.anh}")
             println("Khối thi: ${it.khoithi}")
-            TinhTongDiemTheoKhoiThi()
+            println("Tổng điểm: "+TongDiem())
         }
     }
 
