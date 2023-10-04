@@ -50,7 +50,38 @@ class ThiSinh(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, v
     
         return n
     }
-
+    // Nhập danh sách
+    fun Nhap(){
+        var soLuongThiSinh: Int
+        do {
+            print("Nhập số lượng thí sinh: ")
+            soLuongThiSinh = readLine()!!.toInt()
+            if (soLuongThiSinh <= 0) {
+                println("Số lượng thí sinh phải là số dương. Vui lòng nhập lại.")
+            }
+        } while (soLuongThiSinh <= 0)
+        for (i in 1..soLuongThiSinh) {
+            val thiSinh = ThiSinh()
+            println("Nhập thông tin thí sinh $i:")
+            print("Số CCCD: ")
+            thiSinh.cccd = readLine()!!
+            print("Họ tên: ")
+            thiSinh.hoTen = readLine()!!
+            print("Điểm Toán: ")
+            thiSinh.toan = readLine()!!.toFloat()
+            print("Điểm Lý: ")
+            thiSinh.ly = readLine()!!.toFloat()
+            print("Điểm Hóa: ")
+            thiSinh.hoa = readLine()!!.toFloat()
+            print("Điểm Văn: ")
+            thiSinh.van = readLine()!!.toFloat()
+            print("Điểm Anh: ")
+            thiSinh.anh = readLine()!!.toFloat()
+            print("Khối thi: ")
+            thiSinh.khoiThi = readLine()!!
+            println()
+        }
+    }
     fun Xuat()
     {
         println("Danh sách thông tin thí sinh:")
@@ -63,10 +94,9 @@ class ThiSinh(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, v
             println("Văn: ${it.van}")
             println("Anh: ${it.anh}")
             println("Khối thi: ${it.khoithi}")
-            println("Tổng điểm: "+TongDiem())
+            TinhTongDiemTheoKhoiThi()
         }
     }
-
     fun TongDiem()
     {
         var tong:Float?=null
@@ -120,8 +150,6 @@ fun SinhVienTrungTuyen(DS: ArrayList<sinhvien>,diemchuan:Float){
     }
 }
 
-
-
 fun main() {
-   
+  
 }
