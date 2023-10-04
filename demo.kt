@@ -50,6 +50,40 @@ class ThiSinh(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, v
     
         return n
     }
+
+    fun Xuat()
+    {
+        println("Danh sách thông tin thí sinh:")
+        {
+            println("\nHọ tên: ${it.hoTen}")
+            println("Cccd: ${it.cccd}")
+            println("Toán: ${it.toan}")
+            println("Lý: ${it.ly}")
+            println("Hóa: ${it.hoa}")
+            println("Văn: ${it.van}")
+            println("Anh: ${it.anh}")
+            println("Khối thi: ${it.khoithi}")
+            TinhTongDiemTheoKhoiThi()
+        }
+    }
+
+    fun TongDiem()
+    {
+        var tong:Float?=null
+        if(khoithi.uppercase()=="A00")
+        {
+            tong= toan+ly+hoa
+        }
+        else if(khoithi.uppercase()=="A01")
+        {
+            tong= toan+ly+anh
+        }
+        else if(khoithi.uppercase()=="D01")
+        {
+            tong=toan+van+anh
+        }
+        return tong;
+    }
 }
 
 fun TachHoTen(hoTen: String): Map<String, String>{
@@ -85,6 +119,8 @@ fun SinhVienTrungTuyen(DS: ArrayList<sinhvien>,diemchuan:Float){
         println("--Không có thí sinh trúng tuyển!--")
     }
 }
+
+
 
 fun main() {
    
