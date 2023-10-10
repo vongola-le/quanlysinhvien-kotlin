@@ -94,8 +94,8 @@ class SinhVien(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, 
             println("Văn: ${it.van}")
             println("Anh: ${it.anh}")
             println("Khối thi: ${it.khoithi}")
-            TinhTongDiemTheoKhoiThi()
-        }
+            TongDiem()
+         }
     }
     fun TongDiem()
     {
