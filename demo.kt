@@ -1,5 +1,5 @@
 //LeHoangDe lam ham khoi tao co tham so va khong tham so
-class ThiSinh(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, van: Float, anh: Float, khoiThi: String) {
+class SinhVien(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, van: Float, anh: Float, khoiThi: String) {
     var cccd: String = ""
     var hoTen: String = ""
     var toan: Float = 0f
@@ -51,7 +51,7 @@ class ThiSinh(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, v
         return n
     }
     // Nhập danh sách
-    fun Nhap(){
+    fun Nhap() {
         var soLuongThiSinh: Int
         do {
             print("Nhập số lượng thí sinh: ")
@@ -61,7 +61,7 @@ class ThiSinh(cccd: String, hoTen: String, toan: Float, ly: Float, hoa: Float, v
             }
         } while (soLuongThiSinh <= 0)
         for (i in 1..soLuongThiSinh) {
-            val thiSinh = ThiSinh()
+            val thiSinh = SinhVien()
             println("Nhập thông tin thí sinh $i:")
             print("Số CCCD: ")
             thiSinh.cccd = readLine()!!
@@ -151,5 +151,29 @@ fun SinhVienTrungTuyen(DS: ArrayList<sinhvien>,diemchuan:Float){
 }
 
 fun main() {
-  
+    val dssv = ArrayList<sinhvien>()
+    
+    // Nhập danh sách thí sinh
+    val thiSinh = SinhVien()
+    thiSinh.Nhap()
+    dsThiSinh.add(thiSinh)
+    
+    // Xuất danh sách thí sinh
+    for (ts in dssv) {
+        ts.Xuat()
+    }
+    
+    // Sắp xếp danh sách thí sinh theo tên
+    SapXepDS(dssv)
+    
+    // In ra danh sách thí sinh đã sắp xếp
+    println("---Danh sách thí sinh sau khi sắp xếp---")
+    for (ts in dssv) {
+        ts.Xuat()
+    }
+    
+    // Tìm thí sinh trúng tuyển
+    println("Nhập điểm chuẩn: ")
+    val diemChuan = readLine()!!.toFloat()
+    SinhVienTrungTuyen(dssv, diemChuan)
 }
